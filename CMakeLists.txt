@@ -11,9 +11,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows" AND CMAKE_CROSSCOMPILING)
 endif()
 
 
-if(WIN32 OR ${IS_WIN_CROSS_COMPILE})
-  include(ChooseMSVCCRT)
-endif()
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 include(ExternalProject)
@@ -667,7 +664,7 @@ endif()
 # Installation
 # ======================
 
-if(UNIX)
+if(1)
   include(GNUInstallDirs)
 else()
   if(WIN32)
@@ -687,7 +684,7 @@ install(
   EXPORT LIEFExport
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT libraries
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT libraries
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 install(
