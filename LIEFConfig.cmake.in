@@ -165,7 +165,7 @@ set(LIEF_LIBRARIES LIEF::LIEF)
 get_target_property(LIEF_INCLUDE_DIRS LIEF::LIEF INTERFACE_INCLUDE_DIRECTORIES)
 
 # Set the following for backwards compatibility
-if(LIEF_INCLUDE_DIR AND EXISTS "${LIEF_INCLUDE_DIR}/LIEF/version.h")
+if(DEFINED LIEF_INCLUDE_DIR AND EXISTS "${LIEF_INCLUDE_DIR}/LIEF/version.h")
   file(STRINGS "${LIEF_INCLUDE_DIR}/LIEF/version.h" LIEF_H REGEX "^#define LIEF_VERSION \"[^\"]*\"$")
 
   string(REGEX REPLACE "^.*LIEF_VERSION \"([0-9]+).*$" "\\1"                   LIEF_VERSION_MAJOR "${LIEF_H}")
